@@ -19,7 +19,7 @@
     <div>
     
     &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button4" type="button" class="btn btn-primary btn-lg" runat="server" Text="Button" />
+        <asp:Button ID="Button4" type="button" class="btn btn-primary btn-md" runat="server" Text="首頁" OnClick="Button4_Click" />
         <br />
     
     &nbsp;<br />
