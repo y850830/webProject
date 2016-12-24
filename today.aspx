@@ -14,6 +14,8 @@
     <form id="form1" runat="server">
     <div>
 
+        <asp:Image ID="Image1" runat="server" DescriptionUrl="~/logo.jpg" Height="139px" ImageUrl="~/logo.jpg" Width="752px" />
+
     </div>
     <hr/>
     <div>
@@ -32,7 +34,7 @@
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server"></asp:Label>
         <br />
         <br />
         <br />

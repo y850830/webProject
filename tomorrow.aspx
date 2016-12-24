@@ -14,10 +14,30 @@
     <form id="form1" runat="server">
     <div>
 
+        <asp:Image ID="Image1" runat="server" DescriptionUrl="~/logo.jpg" Height="129px" ImageUrl="~/logo.jpg" Width="749px" />
+
     </div>
     <hr/>
     <div>
     
+    &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button4" type="button" class="btn btn-primary btn-md" runat="server" Text="首頁" OnClick="Button4_Click" />
+        <br />
+    
+    &nbsp;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button1" type="button" class="btn btn-link" runat="server" Text="今日天氣" OnClick="Button1_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button2" type="button" class="btn btn-link" runat="server" Text="明日預報" OnClick="Button2_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button3" type="button" class="btn btn-link" runat="server" Text="一周天氣" OnClick="Button3_Click" />
+        <br />
+        <br />
+&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label1" runat="server"></asp:Label>
+        <br />
+        <br />
+        <br />
     </div>
     </form>
 </body>

@@ -16,13 +16,17 @@ public partial class today : System.Web.UI.Page
         Ultraviolet.Load("http://opendata.epa.gov.tw/ws/Data/UV/?format=xml");
         XmlNodeList item = wheatherdata.GetElementsByTagName("title");
         XmlNodeList UVI = Ultraviolet.GetElementsByTagName("UVI");
-        String temperature, wheater,rain;
-        int leftq = item[2].InnerText.IndexOf("(");
-        int temper = item[2].InnerText.IndexOf("溫");       
-        wheater = item[2].InnerText.Substring(16, temper - 16);
-        rain = item[2].InnerText.Substring(leftq-4, 3);
-        temperature = item[2].InnerText.Substring(temper+4, 7);
+        String temperature, wheater,rain,time;
+        //天氣資料
+        string[] wheatherdescription = item[2].InnerText.Split(' ');
+        time = wheatherdescription[2];
+        wheater = wheatherdescription[3];
+        temperature = wheatherdescription[5] + " " + wheatherdescription[6] + " " + wheatherdescription[7];
+        rain = wheatherdescription[9];
+
+        //天氣資訊
         Label1.Text = "<div class=col-xs-5>";
+        Label1.Text += "<h3>"+ time + "</h3>";
         Label1.Text += "<table class=table>";
         Label1.Text += "<thead><tr><th>溫度</th><th>天氣</th><th>  降雨機率</th></tr></thead>";
         Label1.Text += "<tbody><tr><td>" + temperature + "</td>";
@@ -38,29 +42,34 @@ public partial class today : System.Web.UI.Page
         Label1.Text += "</table>";
         Label1.Text += "</div>";
         Label1.Text += "<div class=col-xs-3>";
-        if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 2)
-        {
-            Label1.Text += "<center><h1>紫外線指數</h1></br></br><img src=../0-2.jpg class=img-rounded><img></center>";
-        }
-        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) > 2　&& Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 5)
-        {
-            Label1.Text += "<center><h1>紫外線指數</h1></br></br><img src=../3-5.jpg class=img-rounded><img></center>";
-        }
-        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) > 5 && Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 7)
-        {
-            Label1.Text += "<center><h1>紫外線指數</h1></br></br><img src=../6-7.jpg class=img-rounded><img></center>";
-        }
-        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) > 7 && Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 10)
-        {
-            Label1.Text += "<center><h1>紫外線指數</h1></br></br><img src=../8-10.jpg class=img-rounded><img></center>";
-        }
-        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) >= 11 )
-        {
-            Label1.Text += "<center><h1>紫外線指數</h1></br></br><img src=../11+.jpg class=img-rounded><img></center>";
-        }
         Label1.Text += "</div>";
         Label1.Text += "<div class=col-xs-4>";
         Label1.Text += "</div>";
+        //紫外線
+        Label1.Text += "<div class=col-xs-12>";
+        if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 2)
+        {
+            Label1.Text += "<h1>紫外線指數</h1></br></br><img src=../0-2.jpg class=img-rounded><img>";
+        }
+        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) > 2 && Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 5)
+        {
+            Label1.Text += "<h1>紫外線指數</h1></br></br><img src=../3-5.jpg class=img-rounded><img>";
+        }
+        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) > 5 && Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 7)
+        {
+            Label1.Text += "<h1>紫外線指數</h1></br></br><img src=../6-7.jpg class=img-rounded><img>";
+        }
+        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) > 7 && Convert.ToInt32(UVI[UVI.Count - 1].InnerText) <= 10)
+        {
+            Label1.Text += "<h1>紫外線指數</h1></br></br><img src=../8-10.jpg class=img-rounded><img>";
+        }
+        else if (Convert.ToInt32(UVI[UVI.Count - 1].InnerText) >= 11)
+        {
+            Label1.Text += "<h1>紫外線指數</h1></br></br><img src=../11+.jpg class=img-rounded><img>";
+        }
+        Label1.Text += "</div>";
+
+
     }
 
 
