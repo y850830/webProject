@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="today.aspx.cs" Inherits="today" %>
+﻿<%@ Page Language="C#" AutoEventWireup="week" CodeFile="tomorrow.aspx.cs" Inherits="week" %>
 
     <!DOCTYPE html>
 
@@ -16,7 +16,7 @@
         <form id="form1" runat="server">
             <div>
 
-                <asp:Image ID="Image1" runat="server" DescriptionUrl="~/img/logo.jpg" Height="139px" ImageUrl="~/logo.jpg" Width="752px" />
+                <asp:Image ID="Image1" runat="server" DescriptionUrl="~/img/logo.jpg" Height="129px" ImageUrl="~/logo.jpg" Width="749px" />
 
             </div>
             <hr/>
